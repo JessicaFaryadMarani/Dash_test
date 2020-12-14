@@ -42,29 +42,159 @@ open HTMLPropTypes
 open ComponentPropTypes
 
 //Note that this layout uses css classes defined by Bulma (https://bulma.io/), which gets defined as a css dependency in the app section below.
-let dslLayout = 
-    Div.div [ClassName "section"; Custom ("Id",box "main-section")] [ //the style for 'main-section' is actually defined in a custom css that you can serve with the dash app.
-        H1.h1 [ClassName "title has-text-centered"] [str "Hello Dash from F#"]
-        Div.div [ClassName "content"] [ 
-            P.p [ClassName "has-text-centered"] [str "This is a simple example Dash.NET app that contains an input component, A world map graph, and a callback that highlights the country you type on that graph."]
-        ]
-        Div.div [ClassName "container"] [
-            H4.h4 [] [str "type a country name to highlight (Press enter to update)"]
-            Input.input "country-selection" [
-                Input.ClassName "input is-primary"
-                Input.Type InputType.Text
-                Input.Value "Germany"
-                Input.Debounce true
-            ] []
-        ]
-        Div.div [ClassName "container"] [
-            Graph.graph "world-highlight" [
-                Graph.ClassName "graph-style" 
-                Graph.Figure (Helpers.createWorldHighlightFigure "Germany")
-            ] []
-        ]
-    ]
 
+//Uebung
+
+//let dslLayout = 
+//    Table.table [ClassName "myTable"] [
+//        H1.h1 [ClassName "title has-text-centered"] [str "Getraenke"]
+//        Div.div [ClassName "content"] [
+//            P.p [ClassName "has-text-centered"] [str "Hier kannst du gleich ein Getraenk auswaehlen."]
+//        ] 
+//        Div.div [ClassName "container"] [
+//            H4.h4 [] [str "Gib hier den Namen ein"]
+//            Input.input "country-selection" [
+//                Input.ClassName "input is-primary"
+//                Input.Type InputType.Text
+//                Input.Value ""
+//                Input.Debounce true
+//            ] []
+//        ]
+       
+//        Ul.ul [] [
+//            Ul.ul [] [str "Coffee"]
+//            Ul.ul [] [str "Tea"]
+//            Ul.ul [] [str "Milk"]
+//        ]
+//        H3.h3 [ClassName "title has-text-centered"] [str "Weitere Getraenke"]
+//        Ul.ul [] [
+//            Ul.ul [] [str "Coke"]
+//            Ul.ul [] [str "Water"]
+//            Ul.ul [] [str "Juice"]
+//        ]
+//    ]
+
+
+//let dslLayout =
+//    Div.div [ClassName "section"; Custom ("Id",box "main-section")] [ //the style for 'main-section' is actually defined in a custom css that you can serve with the dash app.
+//        H1.h1 [ClassName "title has-text-centered"] [str "Hello Dash from F#"]
+//        Div.div [ClassName "content"] [ 
+//            P.p [ClassName "has-text-centered"] [str "This is a simple example Dash.NET app that contains an input component, A world map graph, and a callback that highlights the country you type on that graph."]
+//        ]
+//        Div.div [ClassName "container"] [
+//            H4.h4 [] [str "type a country name to highlight (Press enter to update)"]
+//            Input.input "country-selection" [
+//                Input.ClassName "input is-primary"
+//                Input.Type InputType.Text
+//                Input.Value "Austria"
+//                Input.Debounce false
+//            ] []
+//        ]
+//        Div.div [ClassName "container"] [
+//            Graph.graph "world-highlight" [
+//                Graph.ClassName "graph-style" 
+//                Graph.Figure (Helpers.createWorldHighlightFigure "Austria")
+//            ] []
+//        ]
+//    ]
+
+
+
+
+//Uebung von w3school
+
+  
+//let dslLayout =
+//    Table.table [ClassName "myTable"] [
+//        Tr.tr [] [
+//            Th.th [] [str "Firstname"]
+//            Th.th [] [str "Lastname"]
+//            Th.th [] [str "Age"]
+//        ]
+//        Tr.tr [] [
+//            Td.td [] [str "Jill"]
+//            Td.td [] [str "Smith"]
+//            Td.td [] [str "50"]
+//        ]
+//        Tr.tr [] [
+//            Td.td [] [str "Eve"]
+//            Td.td [] [str "Jackson"]
+//            Td.td [] [str "94"]
+//        ]
+//    ]
+
+//Beispiel:
+//let dslLayout =
+//    Table.table [ClassName "myTable"] [
+//        Tr.tr [] [
+//            Th.th [] [str "Firstname"]
+//            Th.th [] [str "Lastname"]
+//            Th.th [] [str "Age"]
+//        ]
+//        Tr.tr [] [
+//            Td.td [] [str "Jill"]
+//            Td.td [] [str "Smith"]
+//            Td.td [] [str "50"]
+//        ]
+//        Tr.tr [] [
+//            Td.td [] [str "Eve"]
+//            Td.td [] [str "Jackson"]
+//            Td.td [] [str "94"]
+//        ]
+//    ]
+let myGraph = Chart.Line ([(1,1);(2,2);(3,2);(4,8)])
+
+let dslLayout =
+    Div.div [] [
+        H1.h1 [ClassName "title has-text-centered"] [str "Meine Webseite"]
+        Table.table [ClassName "myTable"] [
+            Tr.tr [] [
+                Th.th [] [str "1"]
+                Th.th [] [str "2"]
+                Th.th [] [str "3"]
+            ]
+            Tr.tr [] [
+                Td.td [] [str "A"]
+                Td.td [] [str "B"]
+                Td.td [] [str "C"]
+            ]
+            Tr.tr [] [
+                Td.td [] [str "d" ]
+                Td.td [] [str "d" ]
+                Td.td [] [str "d" ]
+            ]
+        ]
+        Div.div [] [
+            H4.h4 [] [str "Eine Liste mit Tieren"]
+            Ul.ul [] [
+                Ul.ul [] [str "Katze"]
+                Ul.ul [] [str "Hund"]
+                Ul.ul [] [str "Maus"]
+            ]
+            H2.h2 [ClassName "title has-text-centered"] [str "Man kann auch Buttons erstellen" ]
+            P.p [] [str "Das ist ein Paragraph. Hier unten ist gleich ein Button zu sehen:" ]
+            Input.input "hallo" [Input.Type InputType.Text] []
+            Div.div [Id "huhu"] []
+            ]
+        Div.div [] [
+            H3.h3 [ClassName "title has-text-centered" ] [str "Graphen sind ebenfalls moeglich" ]
+            H2.h2 [ClassName "title has-text-centered"] [str "hier ist er:" ]
+            Graph.graph "my-ghraph-id" [Graph.Figure (myGraph |> GenericChart.toFigure)] []
+            Img.img [Custom("src", box "Katze.jpg")] []
+        ]
+        ]
+
+let testCallback =
+    Callback(
+        [CallbackInput.create("hallo", "value")],
+        CallbackOutput.create("huhu","children"),
+        (fun (input:string)-> input)
+       )
+
+//let test = 
+//    DashApp.initDefault()
+//    |> DashApp.withLayout dslLayout
+//    |> DashApp.addCallback testCallback
 //----------------------------------------------------------------------------------------------------
 //============================================= Callbacks ============================================
 //----------------------------------------------------------------------------------------------------
@@ -95,10 +225,13 @@ let myDashApp =
     DashApp.initDefault() // create a Dash.NET app with default settings
     |> DashApp.withLayout dslLayout // register the layout defined above.
     |> DashApp.appendCSSLinks [ 
+        //"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" // register bulma as an external css dependency
         "main.css" // serve your custom css
-        "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" // register bulma as an external css dependency
     ]
-    |> DashApp.addCallback countryHighlightCallback // register the callback that will update the map
+    |> DashApp.addCallback testCallback
+
+    
+ //   |> DashApp.addCallback countryHighlightCallback // register the callback that will update the map
 
 
 // The things below are Giraffe/ASP:NetCore specific and will likely be abstracted in the future.
